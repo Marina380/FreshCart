@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  transition: all 0.5s;
+  transform: translateY(180%);
+  opacity: 0;
+}
+.home:hover .btn {
+  transition: all 0.5s;
+  transform: translateY(0%);
+  opacity: 1;
+}
+
+* {
+  border: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.preloader,
+.preloader:before {
+  --playState: running;
+  border-radius: 50%;
+}
+.preloader {
+  --stopC1: rgb(105, 103, 103);
+  --stopC2: rgb(105, 103, 103);
+  animation: changeColor 24s ease-in-out infinite var(--playState);
+  background-image: radial-gradient(
+      100% 100% at 50% 0,
+      rgb(105, 103, 103) 92%,
+      rgb(105, 103, 103)
+    ),
+    radial-gradient(100% 100% at 25% 0, var(--stopC1) 25%, var(--stopC2));
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20em;
+  height: 20em;
+}
+.preloader:before {
+  --c: green;
+  --cT: rgb(128, 124, 124);
+  animation: spin 2s ease-in-out infinite var(--playState);
+  background-image: radial-gradient(
+    100% 100% at 48% 50%,
+    var(--cT) 48%,
+    currentColor 52%
+  );
+  border: 0;
+  border-right: 0.3em solid;
+  box-shadow: 0.3em 0 0.3em;
+  color: var(--c);
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-0.15em) rotate(0deg);
+  transform-origin: calc(50% - 0.15em) 50%;
+}
+@keyframes changeColor {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  8.33% {
+    filter: hue-rotate(30deg);
+  }
+  16.67% {
+    filter: hue-rotate(60deg);
+  }
+  25% {
+    filter: hue-rotate(90deg);
+  }
+  33.33% {
+    filter: hue-rotate(120deg);
+  }
+  41.67% {
+    filter: hue-rotate(150deg);
+  }
+  50% {
+    filter: hue-rotate(180deg);
+  }
+  58.33% {
+    filter: hue-rotate(210deg);
+  }
+  66.67% {
+    filter: hue-rotate(240deg);
+  }
+  75% {
+    filter: hue-rotate(270deg);
+  }
+  83.33% {
+    filter: hue-rotate(300deg);
+  }
+  91.67% {
+    filter: hue-rotate(330deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+@keyframes spin {
+  to {
+    transform: translateX(-0.15em) rotate(2turn);
+  }
+}
+body {
+  background-image: url("../src/assets/finalProject\ assets/images/bg3.jpg");
+}
