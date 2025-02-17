@@ -10,6 +10,7 @@
  "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
+
     "lint": "eslint .",
     "preview": "vite preview"
   },
