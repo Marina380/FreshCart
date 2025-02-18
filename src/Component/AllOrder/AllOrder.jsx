@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { OrderContext } from "../../Context/OrderContext";
 import logo from "./../../assets/finalProject assets/images/order.jpg";
 
 export default function AllOrder() {
   let { gettLoggedCart, addOrder } = useContext(OrderContext);
   console.log(addOrder?.data);
+
+  useEffect(()=> gettLoggedCart ,
+[])
 
   return (
     <>
