@@ -1,56 +1,18 @@
 import React, { useContext, useEffect } from "react";
 import { OrderContext } from "../../Context/OrderContext";
 import logo from "./../../assets/finalProject assets/images/order.jpg";
-import { jwtDecode } from "jwt-decode";
-import axios  from "axios";
-import { useState } from "react";
-
 
 export default function AllOrder() {
-  // let { gettLoggedCart, addOrder } = useContext(OrderContext);
-   let  [addOrder, setAddOrder] = useState('')
-   
- async function gettLoggedCartadd() {
-  
-  
-  if (localStorage.getItem("userToken")){
-
-try {
-
- 
- let {data}=  await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${  jwtDecode(localStorage.getItem("userToken"))?.id
- }`)
- console.log(  jwtDecode(localStorage.getItem("userToken"))?.id);
-
- 
-console.log(data);
-setAddOrder(data)
- 
-} catch (error) {
- console.log(error);
- 
-}
-
-
-
-
- }
- else{
-   console.log('no order');
-   
- }
-
-}
- 
+  let { getallorder, addOrder } = useContext(OrderContext);
   
   console.log(addOrder?.data);
 
-  useEffect(()=> gettLoggedCartadd ,
+  useEffect(()=> getallorder ,
 [])
 
   return (
     <>
-      {addOrder  ? (
+      {addOrder ? (
         <>
           {addOrder?.length == 0 ? (
             <div className="md:w-[40%] sm:w-[70%] lsm:w-[100%] sm:mx-auto sm:mt-8 lsm:ms-12 py-10 lsm:mt-36">

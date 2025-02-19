@@ -1,5 +1,5 @@
-// import axios from "axios";
-// import { jwtDecode } from "jwt-decode";
+ import axios from "axios";
+ import { jwtDecode } from "jwt-decode";
 
 import { createContext , useState } from "react";
 
@@ -7,40 +7,39 @@ import { createContext , useState } from "react";
 export let OrderContext = createContext();
 
 export default function OrderContextProvider(props) {  
-//  let  [addOrder, setAddOrder] = useState(null)
+  let  [addOrder, setAddOrder] = useState(null)
  
 
-//  async function gettLoggedCart() {
+ async function getallorder() {
   
   
-//    if (localStorage.getItem("userToken")){
+if (localStorage.getItem("userToken")){
 
-// try {
-
-  
-//   let {data}=  await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${  jwtDecode(localStorage.getItem("userToken"))?.id
-//   }`)
-//   console.log(  jwtDecode(localStorage.getItem("userToken"))?.id);
+try {
 
   
-// console.log(data);
-//  setAddOrder(data)
+  let {data}=  await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${  jwtDecode(localStorage.getItem("userToken"))?.id   }`)
+   console.log(  jwtDecode(localStorage.getItem("userToken"))?.id);
+
   
-// } catch (error) {
-//   console.log(error);
+ console.log(data);
+  setAddOrder(data)
   
-// }
+ } catch (error) {
+   console.log(error);
+  
+ }
  
 
 
 
-//   }
-//   else{
-//     console.log('no order');
+   }
+   else{
+     console.log('no order');
     
-//   }
+  }
 
-//  }
+  }
   
 
   
@@ -57,7 +56,7 @@ export default function OrderContextProvider(props) {
 
 
   return (
-    <OrderContext.Provider value={{   }}>
+    <OrderContext.Provider value={{  addOrder , getallorder}}>
       {props.children} 
     </OrderContext.Provider>
   );
