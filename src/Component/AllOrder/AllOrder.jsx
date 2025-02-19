@@ -22,9 +22,12 @@ export default function AllOrder() {
           )}
           {addOrder ? (
             <>
+            {addOrder?.length > 0 ? <>
               <h2 className="text-center text-3xl text-black font-semibold py-8">
                 Your Orders
               </h2>
+            </>:''}
+           
               {addOrder?.map((order, index) => (
                 <>
                   <div>

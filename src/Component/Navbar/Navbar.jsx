@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import logo from "./../../assets/finalProject assets/images/freshcart-logo.svg";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
@@ -8,7 +8,6 @@ import { CartContext } from "../../Context/CartContext";
 export default function Navbar() {
   const [isopen, setIsopen] = useState(true);
   let { userToken, setUserToken } = useContext(UserContext);
-  let { addToCartWishlist } = useContext(WishlistContext);
   let { addProduct } = useContext(CartContext);
   let { addWishlist } = useContext(WishlistContext);
 

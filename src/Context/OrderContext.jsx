@@ -9,18 +9,21 @@ export let OrderContext = createContext();
 export default function OrderContextProvider(props) {  
  let  [addOrder, setAddOrder] = useState(null)
 
- let [decoded, setdecoded] = useState(null)
  
 
  async function gettLoggedCart() {
   
-
-
-  if (localStorage.getItem("userToken")){
+  
+   if (localStorage.getItem("userToken")){
 
 try {
-  setdecoded(jwtDecode(localStorage.getItem("userToken")));
-  let {data}=  await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${ decoded}`)
+
+  
+  
+  let {data}=  await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${jwtDecode(localStorage.getItem("userToken"))?.id}`)
+  console.log(  jwtDecode(localStorage.getItem("userToken"))?.id);
+
+  
 console.log(data);
  setAddOrder(data)
   
@@ -32,6 +35,10 @@ console.log(data);
 
 
 
+  }
+  else{
+    console.log('no order');
+    
   }
 
  }

@@ -4,7 +4,7 @@ import * as yup from "yup";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
-
+import logo from "./../../assets/finalProject assets/images/loginimg.jpg";
 export default function Login() {
   let navigate = useNavigate();
 
@@ -67,100 +67,106 @@ export default function Login() {
       ) : (
         ""
       )}
-
-      <form
-        className="md:max-w-md lsm:ms-8 sm:ms-0 md:m-auto bg-gray-100 py-6 sm:px-14 rounded-lg  "
-        onSubmit={formik.handleSubmit}
-      >
-        <div className=" text-main mb-10 lsm:ms-5 md:ms-0  mt-3">
-          <h2 className="font-bold text-2xl pb-3"> Sign in to FreshCart</h2>
-          <p>Welcome back to FreshCart! Enter your email to get started.</p>
-        </div>
-
-        <div className="relative z-0 lsm:w-[150%] md:w-full mb-5 group md:ms-0 lsm:ms-3 ">
-          <input
-            type="email"
-            name="email"
-            id="email"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.email}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-main peer"
-            placeholder=" "
-            required
+      <div className="lg:flex  lsm:w-[95%]  lsm:mx-auto lsm:ms-6 sm:ms-3 md:ms-10 md:my-28 ">
+        <div className=" lsm:mb-5 sm:ms-32 md:ms-0">
+          <img
+            src={logo}
+            alt="#"
+            className="max-w-none lsm:w-[120%] sm:w-[90%] sm:h-[300px] lg:w-full md:w-[90%] md:mx-auto md:h-auto object-cover sm:object-left-bottom"
           />
-          <label
-            htmlFor="email"
-            className="peer-focus:font-medium absolute  text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-main peer-focus:dark:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            your email
-          </label>
         </div>
-        {formik.errors.email && formik.touched.email ? (
-          <div
-            className="p-4 mb-4 text-sm text-red-800 rounded-lg lsm:w-[150%]  sm:text-center md:w-full "
-            role="alert"
-          >
-            <span className="font-medium">{formik.errors.email}</span>
+        <form
+          className="lg:max-w-lg  md:w-[80%] sm:ms-0 md:m-auto  lsm:px-8  bg-gray-100 lsm:py-6  sm:px-10  rounded-lg max-w-none lsm:w-[120%]  "
+          onSubmit={formik.handleSubmit}
+        >
+          <div className=" text-main mb-10 lsm:ms-5 md:ms-0  mt-3 sm:text-center">
+            <h2 className="font-bold text-2xl pb-3"> Sign in to FreshCart</h2>
+            <p>Welcome back to FreshCart! Enter your email to get started.</p>
           </div>
-        ) : null}
-        <div className="relative z-0 lsm:w-[150%] md:w-full mb-5 group md:ms-0 lsm:ms-3 ">
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.password}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-main peer"
-            placeholder=" "
-            required
-          />
-          <label
-            htmlFor="password"
-            className="peer-focus:font-medium absolute   text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-main peer-focus:dark:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-          >
-            your password
-          </label>
-        </div>
-        {formik.errors.password && formik.touched.password ? (
-          <div
-            className="p-4 mb-4 text-sm text-red-800 rounded-lg lsm:w-[150%]  sm:text-center md:w-full  dark:text-red-400"
-            role="alert"
-          >
-            <span className="font-medium">{formik.errors.password}</span>
-          </div>
-        ) : null}
 
-        {isloading ? (
-          <button
-            type="submit"
-            className="text-white bg-main lsm:ms-3 md:ms-0 hover:bg-main focus:ring-4 focus:outline-none focus:ring-main font-medium rounded-lg text-sm w-full lsm:w-auto px-5 py-2.5 text-c "
-          >
-            <i className="fa-solid fa-spinner fa-spin" />
-          </button>
-        ) : (
-          <button
-            type="submit"
-            className="text-white bg-main lsm:ms-3 md:ms-0 hover:bg-main focus:ring-4 focus:outline-none focus:ring-main font-medium rounded-lg text-sm w-full lsm:w-auto px-5 py-2.5 text-c "
-          >
-            Login
-          </button>
-        )}
-        <div className="mt-4 ms-3 text-md  text-gray-600 hover:text-green-800 ">
-          <Link to={"/forgotPassword"}>
-            Forgot password?
-          </Link>
-        </div>
-        <div className="mt-4 ms-3 text-md text-green-700">
-          <Link to={"/register"}>
-            dont you have an account?
-            <span className="text-green-900 font-bold ms-3 ">
-              Register Now
-            </span>{" "}
-          </Link>
-        </div>
-      </form>
+          <div className="relative z-0 lsm:w-[150%] md:w-full mb-5 group md:ms-0 lsm:ms-3 ">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-main peer"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="email"
+              className="peer-focus:font-medium absolute  text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-main peer-focus:dark:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              your email
+            </label>
+          </div>
+          {formik.errors.email && formik.touched.email ? (
+            <div
+              className="p-4 mb-4 text-sm text-red-800 rounded-lg lsm:w-[150%]  sm:text-center md:w-full "
+              role="alert"
+            >
+              <span className="font-medium">{formik.errors.email}</span>
+            </div>
+          ) : null}
+          <div className="relative z-0 lsm:w-[150%] md:w-full mb-5 group md:ms-0 lsm:ms-3 ">
+            <input
+              type="password"
+              name="password"
+              id="password"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.password}
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  focus:outline-none focus:ring-0 focus:border-main peer"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="password"
+              className="peer-focus:font-medium absolute   text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-main peer-focus:dark:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+            >
+              your password
+            </label>
+          </div>
+          {formik.errors.password && formik.touched.password ? (
+            <div
+              className="p-4 mb-4 text-sm text-red-800 rounded-lg lsm:w-[150%]  sm:text-center md:w-full  dark:text-red-400"
+              role="alert"
+            >
+              <span className="font-medium">{formik.errors.password}</span>
+            </div>
+          ) : null}
+
+          {isloading ? (
+            <button
+              type="submit"
+              className="text-white bg-main lsm:ms-3 md:ms-0 hover:bg-main focus:ring-4 focus:outline-none focus:ring-main font-medium rounded-lg text-sm w-full lsm:w-auto px-5 py-2.5 text-c "
+            >
+              <i className="fa-solid fa-spinner fa-spin" />
+            </button>
+          ) : (
+            <button
+              type="submit"
+              className="text-white bg-main lsm:ms-3 md:ms-0 hover:bg-main focus:ring-4 focus:outline-none focus:ring-main font-medium rounded-lg text-sm w-full lsm:w-auto px-5 py-2.5 text-c "
+            >
+              Login
+            </button>
+          )}
+          <div className="mt-4 ms-3 text-md  text-gray-600 hover:text-green-800 ">
+            <Link to={"/forgotPassword"}>Forgot password?</Link>
+          </div>
+          <div className="mt-4 ms-3 text-md text-green-700">
+            <Link to={"/register"}>
+              dont you have an account?
+              <span className="text-green-900 font-bold ms-3 ">
+                Register Now
+              </span>{" "}
+            </Link>
+          </div>
+        </form>
+      </div>
     </>
   );
 }

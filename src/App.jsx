@@ -31,7 +31,7 @@ import OrderContextProvider from './Context/OrderContext'
 
 
 
- let router = createHashRouter([{
+ let router = createBrowserRouter([{
   path : '' , element: <Layout/> , children :[
    {path : '/' , element :<ProtectedRoute><Home/></ProtectedRoute>},
    {path : 'brands' , element :<ProtectedRoute><Brands/></ProtectedRoute>},
