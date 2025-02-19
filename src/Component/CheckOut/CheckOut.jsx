@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import { CartContext } from "../../Context/CartContext";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../Context/UserContext";
 
 export default function CheckOut() {
   const [isloading, setisloading] = useState(false);
@@ -29,6 +30,8 @@ export default function CheckOut() {
         }
         console.log(data.session.url);
         location.href = data.session.url;
+        
+        
         setisloading(false);
       } catch (error) {
         console.log(error);

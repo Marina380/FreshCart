@@ -6,7 +6,7 @@ import { WishlistContext } from "../../Context/Wishlist";
 import { CartContext } from "../../Context/CartContext";
 
 export default function Navbar() {
-  const [isopen, setIsopen] = useState(true);
+  const [isopen, setIsopen] = useState(false);
   let { userToken, setUserToken } = useContext(UserContext);
   let { addProduct } = useContext(CartContext);
   let { addWishlist } = useContext(WishlistContext);
@@ -248,7 +248,7 @@ Menu open: "block", Menu closed: "hidden"
         </div>
 
         {/* Mobile menu, show/hide based on menu state. */}
-        <div className="sm:hidden" id="mobile-menu">
+        <div className="md:hidden" id="mobile-menu">
           {isopen ? (
             <div className="space-y-1  px-2 pt-2 pb-3">
               {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}

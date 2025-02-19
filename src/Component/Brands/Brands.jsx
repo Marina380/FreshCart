@@ -40,7 +40,7 @@ export default function Brands() {
               <>
                 <div
                   key={index}
-                  className=" w-[24%] bg-[whitesmoke]  hover:scale-110 duration-100 home lsm:w-full md:w-[20%]  ms-7 px-3 shadow-lg shadow-gray-400 rounded-2xl py-10 "
+                  className=" sm:w-[24%] bg-[whitesmoke]  hover:scale-110 duration-100 home lsm:w-full md:w-[20%]  sm:ms-7 px-3 shadow-lg shadow-gray-400 rounded-2xl py-10 "
                 >
                   <Link to={`/brandDetails/${brandone._id}`}>
                     <img src={brandone ?.image} alt="#" className="w-full" />

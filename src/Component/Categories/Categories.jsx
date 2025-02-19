@@ -41,7 +41,7 @@ export default function Categories() {
               <>
                 <div
                   key={index}
-                  className=" w-[24%] bg-[whitesmoke]  hover:scale-110 duration-100 home lsm:w-full md:w-[20%]  ms-7 px-3 shadow-lg shadow-gray-400 rounded-2xl py-6 "
+                  className=" sm:w-[24%] bg-[whitesmoke]  hover:scale-110 duration-100 home lsm:w-full md:w-[20%]  sm:ms-7 px-3 shadow-lg shadow-gray-400 rounded-2xl py-6 "
                 >
                   <Link to={`/categoriesDetails/${categoriesone ?._id}`}>
                     <img

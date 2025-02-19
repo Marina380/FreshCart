@@ -8,7 +8,7 @@ export default function Layout() {
   return (
     <>
       <Navbar />
-      <div className="container mt-24 ">
+      <div className="container sm:mt-24 lsm:mt-16 ">
         <Outlet />
       </div>
 

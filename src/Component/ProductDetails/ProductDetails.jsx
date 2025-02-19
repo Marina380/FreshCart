@@ -60,14 +60,14 @@ export default function ProductDetails() {
       {productDetails ? (
         <>
           {productDetails ? (
-            <div className="text-center text-3xl font-semibold py-5 mb-3 lsm:ms-20 text-main capitalize">
+            <div className="text-center text-3xl font-semibold py-5 mb-3 lsm:ms-10 sm:ms-20 text-main capitalize">
               {productDetails.category.name} Details
             </div>
           ) : (
             ""
           )}
           <>
-            <div className="   home lsm:w-full  md:gap-x-3 md:flex justify-center items-center md:m-0 md:ms-7 lsm:pe-24 lsm:ps-14 md:px-20 md:bg-slate-100 sm:rounded-md py-2 ">
+            <div className="   home lsm:w-[90%]  md:gap-x-3 md:flex justify-center items-center md:m-0 md:ms-7 lsm:pe-24 lsm:ps-8 sm:ps-14 md:px-20 md:bg-slate-100 sm:rounded-md py-2 ">
               <div className="md:w-4/12 lsm:w-[200%] sm:w-[50%]  ">
                 <Slider {...settings}>
                   {productDetailsimg.map((imgg) => (
@@ -128,15 +128,15 @@ export default function ProductDetails() {
               </div>
             </div>
 
-            <div className="text-center text-3xl font-semibold  mb-3 lsm:ms-20 py-20 text-main capitalize">
+            <div className="text-center text-3xl font-semibold  mb-3 lsm:ms-6 py-20   md:text-center  font- lsm:py-9 sm:py-6  text-main capitalize ">
               related product
             </div>
-            <div className="flex flex-wrap lsm:w-full lsm:ms-9 md:ms-20 md:w-11/12 md:m-auto  gap-x-8  gap-y-14 ">
+            <div className="flex flex-wrap lsm:w-full  md:ms-20 md:w-11/12 md:m-auto  gap-x-8  gap-y-14     lsm:ms-7 sm:ms-9 ">
               {relatedproductuct?.map((productone, index) => (
                 <>
                   <div
                     key={index}
-                    className=" w-[24%] bg-[whitesmoke]  hover:scale-110 duration-100 home lsm:w-full md:w-[20%]  ms-7 px-3 shadow-lg shadow-gray-400 rounded-md py-2 "
+                    className=" w-[24%] bg-[whitesmoke]  hover:scale-110 duration-100 home lsm:w-full md:w-[20%]  px-3 shadow-lg shadow-gray-400 rounded-md py-2    sm:ms-7 lsm:px-3"
                   >
                     <Link
                       to={`/productDetails/${productone.id}/${productone.category.name}`}

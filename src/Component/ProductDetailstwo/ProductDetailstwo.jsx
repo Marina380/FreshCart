@@ -59,14 +59,14 @@ export default function ProductDetailstwo() {
       {productDetails ? (
         <>
           {productDetails ? (
-            <div className="text-center text-3xl font-semibold py-5 mb-3 lsm:ms-20 text-main capitalize">
+            <div className="text-center text-3xl font-semibold py-5 mb-3     lsm:ms-10 sm:ms-20 text-main capitalize">
               {productDetails.category.name} Details
             </div>
           ) : (
             ""
           )}
           <>
-            <div className="   home lsm:w-full  md:gap-x-3 md:flex justify-center items-center md:m-0 md:ms-7 lsm:pe-24 lsm:ps-14 md:px-20 md:bg-slate-100 sm:rounded-md py-2 ">
+            <div className="   home   md:gap-x-3 md:flex justify-center items-center  md:px-20 sm:rounded-md py-2   lsm:w-[90%]  md:m-0 md:ms-7 lsm:pe-24 lsm:ps-8 sm:ps-14  md:bg-slate-100  ">
               <div className="md:w-4/12 lsm:w-[200%] sm:w-[50%]  ">
                 <Slider {...settings}>
                   {productDetailsimg.map((imgg) => (

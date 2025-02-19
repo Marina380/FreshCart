@@ -1,21 +1,16 @@
 // import React from 'react'
 
 import axios from "axios";
-import { useEffect, useState ,useContext} from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../Context/CartContext";
 import { WishlistContext } from "../../Context/Wishlist";
 
-
-
 export default function AllProduct() {
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
-    let {  addToCart } = useContext(CartContext);
-    let { addToCartWishlist } = useContext(WishlistContext);
-
-  
-
+  let { addToCart } = useContext(CartContext);
+  let { addToCartWishlist } = useContext(WishlistContext);
 
   async function getProduct() {
     try {
@@ -50,9 +45,11 @@ export default function AllProduct() {
               <>
                 <div
                   key={index}
-                  className=" w-[24%] bg-[whitesmoke]  hover:scale-110 duration-100 home lsm:w-full md:w-[20%]  ms-7 px-3 shadow-lg shadow-gray-400 rounded-md py-2 "
+                  className=" sm:w-[24%] bg-[whitesmoke]   home lsm:w-full md:w-[20%]  sm:ms-7 px-3 shadow-lg shadow-gray-400 rounded-md py-2  hover:scale-110 duration-100   lsm:px-3 "
                 >
-                  <Link to={`/productDetailstwo/${productone.id}/${productone.category.name}`}>
+                  <Link
+                    to={`/productDetailstwo/${productone.id}/${productone.category.name}`}
+                  >
                     <img
                       src={productone?.imageCover}
                       alt={productone?.title}
@@ -90,14 +87,15 @@ export default function AllProduct() {
 
                   <div className="flex justify-between">
                     <button
-                       onClick={() => addToCart(productone.id)}
-                     className="bg-main w-9/12  py-2 px-6 rounded-lg text-white font-semibold my-2   btn">
+                      onClick={() => addToCart(productone.id)}
+                      className="bg-main w-9/12  py-2 px-6 rounded-lg text-white font-semibold my-2   btn"
+                    >
                       Add To Cart
                     </button>
                     <i
-                                          onClick={() => addToCartWishlist(productone.id)}
-
-                     className="fa-regular fa-heart text-3xl cursor-pointer text-red-600 w-2/12 mt-4"></i>
+                      onClick={() => addToCartWishlist(productone.id)}
+                      className="fa-regular fa-heart text-3xl cursor-pointer text-red-600 w-2/12 mt-4"
+                    ></i>
                   </div>
                 </div>
               </>

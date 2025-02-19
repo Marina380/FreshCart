@@ -1,5 +1,5 @@
 // import React from 'react'
-
+import style from "./Home.module.css";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -7,6 +7,9 @@ import Slider from "react-slick";
 import logo from "./../../assets/finalProject assets/images/slider-image-1.jpeg";
 import logo2 from "./../../assets/finalProject assets/images/slider-image-2.jpeg";
 import logo3 from "./../../assets/finalProject assets/images/slider-image-3.jpeg";
+import logo5 from "./../../assets/finalProject assets/images/grocery-banner-2.jpeg";
+import logo4 from "./../../assets/finalProject assets/images/blog-img-1.jpeg";
+
 import { CartContext } from "../../Context/CartContext";
 import { WishlistContext } from "../../Context/Wishlist";
 
@@ -27,7 +30,7 @@ export default function Home() {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 1500,
@@ -73,39 +76,58 @@ export default function Home() {
     <>
       {product ? (
         <>
-          <div className=" sm:w-[95%] sm:m-auto   sm:ms-16 border-[none] lsm:ms-4 lsm:w-[120%] md:pb-16 ">
-            <Slider {...settings} className="">
-              <img
-                src={logo3}
-                className="w-[700px] h-[600px] object-center object-contain rounded-lg"
-                alt=""
-              />
-
-              <img
-                src={logo}
-                className="w-[700px] h-[600px] object-center object-contain rounded-lg"
-                alt=""
-              />
-              <img
-                src={logo2}
-                className="w-[700px] h-[600px] object-center object-contain rounded-lg"
-                alt=""
-              />
-            </Slider>
+          <div className="      border-[none]  md:pb-16 ">
+            <div
+              className={`${style.containerr} sm:ml-auto md:ml-14 lg:ms-52 sm:w-[80%]  lsm:w-[110%] lsm:ms-3   `}
+            >
+              <div className={style.logotwo}>
+                <img
+                  src={logo}
+                  className=" lsm:w-[200px] md:w-[300px] lsm:h-[100px] md:h-[125px] lg:h-[200px] object-cover object-center    "
+                  alt=""
+                />
+              </div>
+              <div className={style.logothree}>
+                <img
+                  src={logo2}
+                  className=" lsm:w-[200px] md:w-[300px]  lsm:h-[100px] md:h-[125px] lg:h-[200px] object-cover object-center  "
+                  alt=""
+                />
+              </div>
+              <div className={style.logoone}>
+                <Slider {...settings} className="">
+                  <img
+                    src={logo5}
+                    className="  lsm:w-[400px] md:w-[1000px] lsm:h-[200px] md:h-[250px] lg:h-[400px] object-cover object-right "
+                    alt=""
+                  />
+                  <img
+                    src={logo4}
+                    className="  lsm:w-[400px] md:w-[1000px] lsm:h-[200px] md:h-[250px] lg:h-[400px] object-cover object-right "
+                    alt=""
+                  />
+                  <img
+                    src={logo3}
+                    className="  lsm:w-[400px] md:w-[1000px] lsm:h-[200px] md:h-[250px] lg:h-[400px] object-cover object-right "
+                    alt=""
+                  />
+                </Slider>
+              </div>
+            </div>
           </div>
 
-          <div className="md:text-center text-3xl font-semibold py-5 mb-3 text-main capitalize lsm:ms-12">
+          <div className="md:text-center sm:text-3xl lsm:mt-7 sm:mt-2 font-semibold lsm:py-5 sm:py-2 mb-3 text-main capitalize lsm:ms-12">
             Shop popular categoies
           </div>
           <Slider
             {...settings2}
-            className="sm:ms-36 sm:my-12 lsm:ms-10 lsm:pe-3 "
+            className="lg:ms-28 sm:my-12 lsm:ms-3 lg:w-[90%]  lsm:pe-3 max-w-none  lsm:w-[110%]"
           >
             {categories?.map((category) => (
               <>
                 <img
                   src={category?.image}
-                  className="h-[200px]  object-cover "
+                  className="sm:h-[200px] lg:h-[250px] lsm:h-[150px] lg:w-[250px]   object-cover lsm:object-center lg:object-top "
                   alt=""
                 />
                 <h3 className="mt-4">
@@ -115,18 +137,18 @@ export default function Home() {
             ))}
           </Slider>
           {product ? (
-            <div className="md:text-center text-3xl font-semibold py-5 mb-3 text-main capitalize lsm:ms-12">
+            <div className="md:text-center text-3xl font-semibold lsm:py-9 sm:py-6 mb-3 text-main capitalize lsm:ms-6">
               popular Products
             </div>
           ) : (
             ""
           )}
-          <div className="flex flex-wrap lsm:w-full  lsm:ms-9 md:ms-20 md:w-11/12 md:m-auto  gap-x-8  gap-y-14 ">
+          <div className="flex flex-wrap lsm:w-full  lsm:ms-7 sm:ms-9 md:ms-20 md:w-11/12 md:m-auto  gap-x-8  gap-y-14 ">
             {product?.map((productone, index) => (
               <>
                 <div
                   key={index}
-                  className=" w-[24%] bg-[whitesmoke]  hover:scale-110 duration-100 home lsm:w-full md:w-[20%]  ms-7 px-3 shadow-lg shadow-gray-400 rounded-md py-2 "
+                  className="sm:w-[24%] bg-[whitesmoke]  hover:scale-110 duration-100 home lsm:w-full md:w-[20%]  sm:ms-7 lsm:px-3 shadow-lg shadow-gray-400 rounded-md py-2 "
                 >
                   <Link
                     to={`productDetails/${productone.id}/${productone.category.name}`}
@@ -175,7 +197,7 @@ export default function Home() {
                     </button>
                     <i
                       onClick={() => addToCartWishlist(productone.id)}
-                      id='test'
+                      id="test"
                       className="fa-regular fa-heart text-3xl text-red-600 w-2/12 mt-4 cursor-pointer"
                     ></i>
                   </div>
