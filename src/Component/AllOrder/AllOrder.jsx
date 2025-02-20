@@ -1,11 +1,45 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { OrderContext } from "../../Context/OrderContext";
 import logo from "./../../assets/finalProject assets/images/order.jpg";
-
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 export default function AllOrder() {
-  let { getallorder, addOrder } = useContext(OrderContext);
+  // let { getallorder, addOrder } = useContext(OrderContext);
+  let  [addOrder, setAddOrder] = useState(null)
+
   
   console.log(addOrder?.data);
+  async function getallorder() {
+  
+  
+    if (localStorage.getItem("userToken")){
+    
+    try {
+    
+      
+      let {data}=  await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${  jwtDecode(localStorage.getItem("userToken"))?.id   }`)
+       console.log(  jwtDecode(localStorage.getItem("userToken"))?.id);
+    
+      
+     console.log(data);
+      setAddOrder(data)
+      
+     } catch (error) {
+       console.log(error);
+      
+     }
+     
+    
+    
+    
+       }
+       else{
+         console.log('no order');
+        
+      }
+    
+      }
+      
 
   useEffect(()=> getallorder ,
 [])
