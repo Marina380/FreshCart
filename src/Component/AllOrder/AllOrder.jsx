@@ -15,7 +15,6 @@ export default function AllOrder() {
   return (
     <>
 
-       <h2 className="bg-red-800 py-56">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sint dignissimos deleniti! Nam voluptatem quia, velit nihil blanditiis qui nobis, tempora cumque tenetur recusandae sed accusamus dolorum eius dolore pariatur non, nesciunt dolorem quod. Earum dolorem odio maiores corporis voluptatibus.</h2>
       {addorder ? (
         <>
           {addorder?.length == 0 ? (
