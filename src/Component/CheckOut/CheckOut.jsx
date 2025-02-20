@@ -20,7 +20,7 @@ export default function CheckOut() {
       setisloading(true);
       try {
         let { data } = await axios.post(
-          `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${addProduct?._id}?url=https://fresh-cart-nu-sepia.vercel.app/`,
+          `https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${addProduct?._id}?url=https://fresh-cart-nu-sepia.vercel.app/%23`,
           { shippingAddress: values },
           { headers: { token: localStorage.getItem("userToken") } }
         );
