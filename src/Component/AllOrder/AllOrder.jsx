@@ -1,69 +1,39 @@
-import React, { useEffect, useState } from "react";
-// import { OrderContext } from "../../Context/OrderContext";
+import React, { useContext, useEffect } from "react";
+ import { OrderContext } from "../../Context/OrderContext";
 import logo from "./../../assets/finalProject assets/images/order.jpg";
-import axios from "axios";
-import { jwtDecode } from "jwt-decode";
 export default function AllOrder() {
-  // let { getallorder, addOrder } = useContext(OrderContext);
-  let  [addOrder, setAddOrder] = useState(null)
+  let { getallorder, addorder } = useContext(OrderContext);
 
   
-  console.log(addOrder?.data);
-  async function getallorder() {
-  
-  
-    if (localStorage.getItem("userToken")){
-    
-    try {
-    
-      
-      let {data}=  await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${  jwtDecode(localStorage.getItem("userToken"))?.id   }`)
-       console.log(  jwtDecode(localStorage.getItem("userToken"))?.id);
-    
-      
-     console.log(data);
-      setAddOrder(data)
-      
-     } catch (error) {
-       console.log(error);
-      
-     }
-     
-    
-    
-    
-       }
-       else{
-         console.log('no order');
-        
-      }
-    
-      }
+  console.log(addorder);
+ 
       
 
-  useEffect(()=> getallorder ,
-[])
+  useEffect(()=>{getallorder() },
+[getallorder])
 
   return (
     <>
-      {addOrder ? (
+
+       <h2 className="bg-red-800 py-56">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sint dignissimos deleniti! Nam voluptatem quia, velit nihil blanditiis qui nobis, tempora cumque tenetur recusandae sed accusamus dolorum eius dolore pariatur non, nesciunt dolorem quod. Earum dolorem odio maiores corporis voluptatibus.</h2>
+      {addorder ? (
         <>
-          {addOrder?.length == 0 ? (
+          {addorder?.length == 0 ? (
             <div className="md:w-[40%] sm:w-[70%] lsm:w-[100%] sm:mx-auto sm:mt-8 lsm:ms-12 py-10 lsm:mt-36">
               <img src={logo} alt="#" className="sm:w-full object-cover" />
             </div>
           ) : (
             ""
           )}
-          {addOrder ? (
+          {addorder ? (
             <>
-            {addOrder?.length > 0 ? <>
+            {addorder?.length > 0 ? <>
               <h2 className="text-center text-3xl text-black font-semibold py-8">
                 Your Orders
               </h2>
             </>:''}
            
-              {addOrder?.map((order, index) => (
+              {addorder?.map((order, index) => (
                 <>
                   <div>
                     <div className=" flex items-center sm:justify-around   sm:w-[80%] mx-auto py-6 px-5 bg-gray-100">

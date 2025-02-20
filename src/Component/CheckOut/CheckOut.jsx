@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import { useState } from "react";
 import axios from "axios";
@@ -8,10 +8,12 @@ import { CartContext } from "../../Context/CartContext";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
+// import { OrderContext } from "../../Context/OrderContext";
 
 export default function CheckOut() {
   const [isloading, setisloading] = useState(false);
   let { addProduct } = useContext(CartContext);
+  // let { getallorder } = useContext(OrderContext);
   //   // let [idcheckout, setidcheckout] = useState('')
   //   // let { Checkout } = useContext(OrderContext);
 
@@ -39,7 +41,7 @@ export default function CheckOut() {
       }
     }
   }
-
+  // useEffect(()=>{getallorder()},[])
   let formik = useFormik({
     initialValues: {
       details: "",
@@ -48,6 +50,8 @@ export default function CheckOut() {
     },
     onSubmit: CheckOuttwo,
   });
+
+
 
   return (
     <>

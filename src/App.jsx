@@ -39,7 +39,7 @@ import OrderContextProvider from './Context/OrderContext'
    {path : 'products' , element :<ProtectedRoute><Products/></ProtectedRoute>},
    {path : 'categories' , element :<ProtectedRoute><Categories/></ProtectedRoute>},
    {path : 'Wishlist' , element : <ProtectedRoute><Wishlist/></ProtectedRoute>},
-   {path : '/allorders' , element : <ProtectedRoute><AllOrder/></ProtectedRoute>},
+   {path : 'allorders' , element : <ProtectedRoute><AllOrder/></ProtectedRoute>},
    {path : 'checkout' , element : <ProtectedRoute><CheckOut/></ProtectedRoute>},
    {path : 'productDetails/:id/:category' , element : <ProtectedRoute><ProductDetails/></ProtectedRoute>},
    {path : 'productDetailstwo/:id/:category' , element : <ProtectedRoute><ProductDetails/></ProtectedRoute>},

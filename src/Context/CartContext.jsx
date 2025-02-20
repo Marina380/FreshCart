@@ -1,12 +1,14 @@
 import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import toast from 'react-hot-toast';
-
+import { OrderContext } from "./OrderContext";
+// import { OrderContext } from "./OrderContext";
 
 export let CartContext = createContext();
 
 export default function CartContextProvider(props) {  
 const [addProduct, setAddProduct] = useState(null)
+let {getallorder}=useContext(OrderContext)
 
 
     function test() {
@@ -60,6 +62,7 @@ const [addProduct, setAddProduct] = useState(null)
         let {data}=  await axios.get('https://ecommerce.routemisr.com/api/v1/cart' ,{headers :{token :localStorage.getItem('userToken')}})
         console.log(data.data);
         setAddProduct(data.data)
+        getallorder()
 
     } catch (error) {
         console.log(error);

@@ -12,10 +12,12 @@ import logo4 from "./../../assets/finalProject assets/images/blog-img-1.jpeg";
 
 import { CartContext } from "../../Context/CartContext";
 import { WishlistContext } from "../../Context/Wishlist";
-
+import { OrderContext } from "../../Context/OrderContext";
 // import style from "./Home.module.css";
 
 export default function Home() {
+ let{getallorder} =useContext(OrderContext)
+
   var settings = {
     dots: true,
     infinite: true,
@@ -69,8 +71,10 @@ export default function Home() {
 
   useEffect(() => {
     getProduct();
+
     getCategories();
-  }, []);
+
+  },[getallorder]);
 
   return (
     <>

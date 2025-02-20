@@ -1,51 +1,43 @@
-//  import axios from "axios";
-//  import { jwtDecode } from "jwt-decode";
+ import axios from "axios";
+ import { jwtDecode } from "jwt-decode";
 
-import { createContext  } from "react";
+import { createContext, useContext, useEffect, useState  } from "react";
 
 
 export let OrderContext = createContext();
 
 export default function OrderContextProvider(props) {  
-  // let  [addOrder, setAddOrder] = useState(null)
+
+   let  [addorder, setorder] = useState('')
  
 
-//  async function getallorder() {
+async function getallorder() {
+  
   
   
 // if (localStorage.getItem("userToken")){
 
-// try {
+try {
 
-  
-//   let {data}=  await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${  jwtDecode(localStorage.getItem("userToken"))?.id   }`)
-//    console.log(  jwtDecode(localStorage.getItem("userToken"))?.id);
+   let {data}=  await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${  jwtDecode(localStorage.getItem("userToken"))?.id   }`)
+   console.log(  jwtDecode(localStorage.getItem("userToken"))?.id);
+   console.log(data);
+   setorder(data);}
+    catch (error) 
+    {console.log(error)  }
 
-  
-//  console.log(data);
-//   setAddOrder(data)
-  
-//  } catch (error) {
-//    console.log(error);
-  
-//  }
+
  
 
-
-
-//    }
-//    else{
-//      console.log('no order');
-    
-//   }
-
-//   }
-  
+    }
 
   
 
 
 
+  useEffect(()=>{
+    getallorder()
+  },[])
 
 
 
@@ -56,8 +48,10 @@ export default function OrderContextProvider(props) {
 
 
   return (
-    <OrderContext.Provider value={{  }}>
+    <OrderContext.Provider value={{addorder,  getallorder  }}>
       {props.children} 
     </OrderContext.Provider>
   );
 }
+
+
